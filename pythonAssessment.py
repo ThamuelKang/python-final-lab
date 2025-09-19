@@ -52,9 +52,27 @@ def calculate_average_word_length(text):
     return average_length
 
 
+def count_paragraphs(text):
+    paragraph_count = text.count("\n\n")
+
+    print(paragraph_count)
+    return paragraph_count
+
+
+def count_sentences(text):
+    sentences = re.findall(r"[.!?]+", text)
+
+    sentence_count = len(sentences)
+    print(sentence_count)
+    return sentence_count
+
+
 with open("text.txt", "r", encoding="utf-8") as f:
     text = f.read()
+
 
 count_specific_word("AI", text)
 indentify_most_common_word(text)
 calculate_average_word_length(text)
+count_paragraphs(text)
+count_sentences(text)
